@@ -42,11 +42,12 @@ Transform leftover food into community support. Instead of throwing away extra m
 
 ## Usage
 
-**Donors:** Sign up → Post food → Connect with recipients
-**Recipients:** Browse food → Request items → Coordinate pickup
+**Donors:** Sign up → Post food → Connect with recipients.
+**Recipients:** Browse food → Request items → Coordinate pickup/
 
 ---
 
-**Contact:** Hasib Shahriyar & Mehedi Alam Nahi | **Project:** [ZeroHunger](https://github.com/hasibshahriyar/ZeroHunger)
+**Contact:** Hasib Shahriyar & Mehedi Alam Nahi
+**Project:** [ZeroHunger](https://github.com/hasibshahriyar/ZeroHunger)...
 
 *Together, we can make sure no one in our community goes hungry.* 🤝❤️
