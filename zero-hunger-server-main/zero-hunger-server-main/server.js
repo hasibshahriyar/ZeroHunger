@@ -5,6 +5,7 @@ const db = require("./config/db.config");
 const port = process.env.PORT || 5000;
 
 // Start the server
+<<<<<<< HEAD
 const server = app.listen(port, () => {
   console.log(`🚀 Server is running on port ${port}`);
   console.log(`📍 Backend URL: http://localhost:${port}`);
@@ -28,4 +29,8 @@ process.on('SIGTERM', () => {
     console.log('✅ Server closed');
     process.exit(0);
   });
+=======
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+>>>>>>> origin/main
 });
