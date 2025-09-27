@@ -14,8 +14,13 @@ import AddFood from "../Pages/AddFood/AddFood";
 import ManageAddedFoods from "../Pages/Dashboard/DonorPage/ManageAddedFoods";
 import AdminProfile from "../Pages/Dashboard/AdminPage/AdminProfile";
 import { createBrowserRouter } from "react-router-dom";
-import useAxios from "../hooks/useAxios";
+import axios from "axios";
 import PrivateRouter from "./PrivateRouter";
+
+// Create axios instance to match useAxios hook configuration
+const axiosInstance = axios.create({
+  baseURL: "http://localhost:5000/api/v1",
+});
 import UserRouter from "./UserRouter";
 import DonorRouter from "./DonorRouter";
 import AdminRouter from "./AdminRouter";
@@ -25,7 +30,7 @@ import ManageAdminFood from "../Pages/Dashboard/AdminPage/ManageAdminFood";
 import ManageUsers from "../Pages/Dashboard/AdminPage/ManageUsers";
 import UserRating from "../Pages/Dashboard/UserPage/UserRating";
 import AdminManageRating from "../Pages/Dashboard/AdminPage/AdminManageRating";
-const axios = useAxios();
+>>>>>>> origin/main
 
 const router = createBrowserRouter([
   {
@@ -60,7 +65,7 @@ const router = createBrowserRouter([
             <CategoryDetails></CategoryDetails>
           </PrivateRouter>
         ),
-        loader: ({ params }) => axios.get(`/foods/${params.category}`),
+        loader: ({ params }) => axiosInstance.get(`/foods/${params.category}`),
       },
       {
         path: "/chatbot",
@@ -141,7 +146,7 @@ const router = createBrowserRouter([
           </DonorRouter>
         ),
         loader: async ({ params }) =>
-          await axios.get(`/foods/single-foods/${params.id}`),
+          await axiosInstance.get(`/foods/single-foods/${params.id}`),
       },
       {
         path: "admin-profile",
