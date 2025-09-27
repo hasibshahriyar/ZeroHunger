@@ -76,7 +76,7 @@ We'd love your help making ZeroHunger even better! Whether you're a programmer, 
 
 ## 📧 Questions?
 
-**Contact:** Hasib Shahriyar  
+**Contact:** Hasib Shahriyar & Mehedi Alam Nahi
 **Project:** [github.com/hasibshahriyar/ZeroHunger](https://github.com/hasibshahriyar/ZeroHunger)
 
 ---
