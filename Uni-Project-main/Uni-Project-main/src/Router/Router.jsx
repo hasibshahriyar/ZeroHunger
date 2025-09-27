@@ -30,6 +30,7 @@ import ManageAdminFood from "../Pages/Dashboard/AdminPage/ManageAdminFood";
 import ManageUsers from "../Pages/Dashboard/AdminPage/ManageUsers";
 import UserRating from "../Pages/Dashboard/UserPage/UserRating";
 import AdminManageRating from "../Pages/Dashboard/AdminPage/AdminManageRating";
+>>>>>>> origin/main
 
 const router = createBrowserRouter([
   {

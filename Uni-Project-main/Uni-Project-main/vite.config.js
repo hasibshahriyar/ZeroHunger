@@ -6,8 +6,9 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0', // Allow external access
-    port: 3000,      // Custom port
-    strictPort: true, // Exit if port is already in use
+    port: 3000,
+    strictPort: true,
+    open: true,
   },
   preview: {
     host: '0.0.0.0',
