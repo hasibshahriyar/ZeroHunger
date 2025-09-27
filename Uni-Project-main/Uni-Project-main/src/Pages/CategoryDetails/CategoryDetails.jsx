@@ -145,9 +145,12 @@ const CategoryDetails = () => {
                     <div className=" w-full  bg-base-100 shadow-xl h-full flex flex-col justify-between rounded-lg">
                       <figure>
                         <img
-                          className="w-full h-[300px] rounded-lg "
+                          className="w-full h-[300px] rounded-lg object-cover"
                           src={food.food_photo}
-                          alt={food.food_name}
+                          alt={`${food.food_name} - donated food`}
+                          onError={(e) => {
+                            e.target.src = "https://i.ibb.co/HFFn1w2/biriyani.jpg";
+                          }}
                         />
                       </figure>
 
@@ -157,9 +160,12 @@ const CategoryDetails = () => {
 
                           <div className="flex items-center flex-col justify-center gap-1 ">
                             <img
-                              className="w-[40px] h-[40px] rounded-full"
-                              src={food.user_photo}
-                              alt={food.user_name}
+                              className="w-[40px] h-[40px] rounded-full object-cover"
+                              src={food.user_photo || "https://i.ibb.co/5cxvxkf/userr.jpg"}
+                              alt={`${food.user_name} profile picture`}
+                              onError={(e) => {
+                                e.target.src = "https://i.ibb.co/5cxvxkf/userr.jpg";
+                              }}
                             />
                             <h3 className="capitalize">{food.user_name}</h3>
                           </div>

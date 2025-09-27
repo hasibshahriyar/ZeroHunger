@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import useAuth from "./../../hooks/useAuth";
 import toast from "react-hot-toast";
+import registerBg from "../../assets/banner1.png";
 const Register = () => {
   const { register, error, logout } = useAuth();
   const navigate = useNavigate();
@@ -31,85 +32,101 @@ const Register = () => {
   };
   const [toggle, setToggle] = useState(false);
   return (
-    <div className="md:w-3/5 mx-4 md:mx-auto items-center my-20 py-16 bg-cyan-400 rounded-xl">
-      <div className="hero-content flex-col ">
-        <div className="text-center lg:text-left">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-white">
-            Register now!
-          </h1>
-        </div>
-        <div className="card md:w-3/4  lg:w-1/2  shadow-2xl bg-base-100">
-          <form className="card-body" onSubmit={handleRegister}>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Name</span>
+    <div className="min-h-screen bg-gradient-to-br from-green-400 to-cyan-600 flex items-center justify-center p-4">
+      <div className="flex w-full max-w-6xl bg-white rounded-2xl shadow-2xl overflow-hidden">
+        {/* Left side - Form */}
+        <div className="w-full lg:w-1/2 p-8 lg:p-12">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Register Now!
+            </h1>
+            <p className="text-gray-600">Join our community and make a difference</p>
+          </div>
+          <form className="space-y-6" onSubmit={handleRegister}>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Name
               </label>
               <input
                 type="text"
-                placeholder="Your Name"
+                placeholder="Enter your full name"
                 name="name"
-                className="input input-bordered"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent transition-colors"
                 required
               />
             </div>
 
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Email
               </label>
               <input
                 type="email"
-                placeholder="email"
+                placeholder="Enter your email"
                 name="email"
-                className="input input-bordered"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent transition-colors"
                 required
               />
             </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
 
-              <div className="flex items-center relative">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Password
+              </label>
+              <div className="relative">
                 <input
                   type={toggle ? "text" : "password"}
-                  placeholder="password"
+                  placeholder="Create a password"
                   name="password"
-                  className="input input-bordered w-full"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent transition-colors"
                   required
                 />
-                {toggle ? (
-                  <AiOutlineEyeInvisible
-                    onClick={() => setToggle(!toggle)}
-                    className="relative right-6 cursor-pointer"
-                  ></AiOutlineEyeInvisible>
-                ) : (
-                  <AiOutlineEye
-                    onClick={() => setToggle(!toggle)}
-                    className="relative right-6 cursor-pointer"
-                  ></AiOutlineEye>
-                )}
+                <button
+                  type="button"
+                  onClick={() => setToggle(!toggle)}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                >
+                  {toggle ? (
+                    <AiOutlineEyeInvisible size={20} />
+                  ) : (
+                    <AiOutlineEye size={20} />
+                  )}
+                </button>
               </div>
             </div>
-            <div className="form-control mt-3">
-              <button
-                type="submit"
-                className="btn btn-secondary bg-cyan-400 hover:bg-cyan-600 border-none "
-              >
-                Register
-              </button>
-            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-green-400 to-cyan-500 text-white py-3 px-4 rounded-lg font-medium hover:from-green-500 hover:to-cyan-600 transition-all duration-200 transform hover:scale-105"
+            >
+              Register
+            </button>
           </form>
 
-          <p className="text-center mx-6 md:mx-0 mb-4">
-            Already have an account? Please{" "}
+          <p className="text-center mt-6 text-gray-600">
+            Already have an account?{" "}
             <NavLink
               to="/login"
-              className="text-blue-700 hover:border-b border-black"
+              className="text-green-600 hover:text-green-700 font-medium hover:underline"
             >
               Login
             </NavLink>
           </p>
+        </div>
+        
+        {/* Right side - Image */}
+        <div className="hidden lg:flex lg:w-1/2 relative">
+          <img 
+            src={registerBg} 
+            alt="People helping with food donation" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <div className="text-center text-white px-8">
+              <h2 className="text-4xl font-bold mb-4">Join Our Mission!</h2>
+              <p className="text-lg">Help us fight hunger and make a positive impact in your community</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

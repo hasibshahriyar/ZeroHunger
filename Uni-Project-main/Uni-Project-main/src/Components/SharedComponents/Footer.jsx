@@ -5,7 +5,7 @@ const Footer = () => {
     <div className=" bg-cyan-600 ">
       <footer className="footer w-10/12 mx-auto p-10 text-lg  text-white ">
         <nav className="flex flex-col justify-center items-center">
-          <img className="w-[200px]  h-[200px]" src={Logo} alt="" />
+          <img className="w-[200px]  h-[200px]" src={Logo} alt="ZeroHunger organization logo" />
         </nav>
         <nav>
           <header className=" footer-title  text-lg ">Services</header>

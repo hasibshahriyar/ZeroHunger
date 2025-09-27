@@ -78,9 +78,12 @@ const ManageAdminFood = () => {
                   <th>{index + 1}</th>
                   <th>
                     <img
-                      className="w-[100px] h-[100px] object-cover "
-                      src={food?.food_photo}
-                      alt=""
+                      className="w-[100px] h-[100px] object-cover rounded-lg"
+                      src={food?.food_photo || "https://i.ibb.co/HFFn1w2/biriyani.jpg"}
+                      alt={`${food?.food_name} - food item`}
+                      onError={(e) => {
+                        e.target.src = "https://i.ibb.co/HFFn1w2/biriyani.jpg";
+                      }}
                     />
                   </th>
                   <th className="capitalize">{food?.food_name}</th>

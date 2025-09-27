@@ -23,7 +23,7 @@ const Sidebar = () => {
       ) : (
         <div className=" mt-8 md:mt-16 lg:mt-28 fixed    ">
           <div className="flex justify-center items-center mb-12">
-            <img className="w-28 h-28" src={logo} alt="" />
+            <img className="w-28 h-28" src={logo} alt="ZeroHunger dashboard logo" />
           </div>
           <div className="    text-white flex flex-col     ">
             {/* upper side */}

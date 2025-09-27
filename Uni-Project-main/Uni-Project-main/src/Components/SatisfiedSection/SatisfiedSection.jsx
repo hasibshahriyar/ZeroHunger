@@ -8,7 +8,7 @@ const SatisfiedSection = () => {
         {/* <Head headingText={"Satisfied Customers"}></HeaderText> */}
         <div className="flex h-[400px]  ">
           <div className="flex-1">
-            <img className="h-[400px] w-full" src={banner1} alt="" />
+            <img className="h-[400px] w-full" src={banner1} alt="Happy food donation recipient" />
           </div>
           <div className="flex-1 flex justify-center items-center  bg-cyan-600 text-white ">
             <div className="px-12">
@@ -35,7 +35,7 @@ const SatisfiedSection = () => {
             </div>
           </div>
           <div className="flex-1">
-            <img className="h-[400px] w-full" src={banner2} alt="" />
+            <img className="h-[400px] w-full" src={banner2} alt="Generous food donor helping community" />
           </div>
         </div>
       </Container>

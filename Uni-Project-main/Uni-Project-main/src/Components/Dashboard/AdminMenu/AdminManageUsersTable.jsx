@@ -46,7 +46,14 @@ const AdminManageUsersTable = ({ userData, index, refetch }) => {
     <tr className="text-center">
       <th>{index + 1}</th>
       <th>
-        <img className="w-24 rounded h-24" src={userData?.userImage} alt="" />
+        <img 
+          className="w-24 h-24 rounded object-cover" 
+          src={userData?.userImage || "https://i.ibb.co/5cxvxkf/userr.jpg"} 
+          alt="User profile picture"
+          onError={(e) => {
+            e.target.src = "https://i.ibb.co/5cxvxkf/userr.jpg";
+          }}
+        />
       </th>
       <th className="capitalize">{userData?.username}</th>
       <th>{userData?.email}</th>
