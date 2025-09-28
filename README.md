@@ -1,91 +1,53 @@
-# 🍽️ ZeroHunger - Fight Hunger, Share Food
+# 🍽️ ZeroHunger
 
-**Help your community by sharing extra food with those who need it most.**
+**Connect your community to fight hunger and reduce food waste.**
 
-ZeroHunger is a simple website where people can donate leftover food and others can request food when they need it. It's all about bringing communities together to fight hunger and reduce food waste.
+A platform where people can share extra food with those who need it most.
 
-## 🌟 What is ZeroHunger?
+## What is ZeroHunger?
 
-Imagine you cooked too much dinner, or your restaurant has extra food at closing time. Instead of throwing it away, you can post it on ZeroHunger so someone hungry can pick it up. It's that simple!
+Transform leftover food into community support. Instead of throwing away extra meals, share them with neighbors who need them.
 
-## ✨ What Can You Do?
+## Features
 
-### 🎯 For Food Donors
-- **Share your extra food** - Post what you have available
-- **Help your neighbors** - Know your food is going to someone who needs it
-- **Reduce waste** - Stop good food from going to the trash
-- **Track your impact** - See how many people you've helped
+**🎯 For Donors**
+- Post available food with photos
+- Track your community impact
+- Connect directly with recipients
 
-### 👥 For People Who Need Food
-- **Find free food nearby** - Browse what's available in your area
-- **Request what you need** - Ask for specific types of food
-- **Stay updated** - Get notified when new food is posted
-- **Say thanks** - Rate and thank the people who help you
+**👥 For Recipients**  
+- Browse nearby available food
+- Request what you need
+- Rate and thank donors
 
-### 📊 For Community Leaders
-- **See the big picture** - Understand food needs in your area
-- **Manage the platform** - Keep everything running smoothly
-- **View impact reports** - See how much hunger you're fighting together
+**📊 For Admins**
+- Monitor platform activity
+- Manage users and food listings
+- View community impact metrics
 
-## 🛠️ How We Built It
+## Tech Stack
 
-**Website:** Built with modern tools to make it fast and easy to use on phones and computers
+- **Frontend:** React + Vite + Tailwind CSS
+- **Backend:** Node.js + Express
+- **Database:** MySQL
+- **Features:** Real-time notifications, image uploads, user authentication
 
-**Database:** Safely stores all the food listings and user information
+## Quick Start
 
-**Smart Features:** Automatically tracks food freshness and sends helpful notifications
+1. Clone the repository
+2. Set up MySQL database using `schema.sql`
+3. Install dependencies: `npm install`
+4. Configure database in `config/db.config.js`
+5. Start development: `npm run dev`
 
-## 🚀 Want to Try It?
+## Usage
 
-### What You Need
-- A computer with internet
-- MySQL database (for storing information)
-- Basic knowledge of setting up websites
-
-### Quick Start
-1. **Download the code** from this page
-2. **Set up the database** using our provided files
-3. **Install the required programs** (we'll guide you)
-4. **Start the website** and begin helping your community!
-
-## 📱 How to Use
-
-### Sharing Food (Donors)
-1. Sign up and tell us you want to donate food
-2. Post your extra food with a photo and description
-3. Wait for someone to request it
-4. Arrange pickup with the person who needs it
-
-### Getting Food (Recipients)
-1. Sign up and browse available food
-2. Request food items you need
-3. Coordinate pickup with the donor
-4. Enjoy your meal and leave a thank you note
-
-## 🌍 Making a Difference
-
-Every meal shared through ZeroHunger means:
-- ✅ One less person going hungry
-- ✅ Less food waste in our landfills  
-- ✅ Stronger community connections
-- ✅ A healthier planet for everyone
-
-## 🤝 Want to Help Improve This?
-
-We'd love your help making ZeroHunger even better! Whether you're a programmer, designer, or just someone with great ideas, you can contribute.
-
-## 📧 Questions?
-
-**Contact:** Hasib Shahriyar  
-**Project:** [github.com/hasibshahriyar/ZeroHunger](https://github.com/hasibshahriyar/ZeroHunger)
+**Donors:** Sign up → Post food → Connect with recipients.  
+**Recipients:** Browse food → Request items → Coordinate pickup
 
 ---
 
-<<<<<<< HEAD
-**Together, we can make sure no one in our community goes hungry. 🤝❤️**
-=======
-# ZeroHunger
->>>>>>> 47fe5d7d4e5b2e9d7f5050c614674cec5c7d7c98
-=======
-**Together, we can make sure no one in our community goes hungry. 🤝❤️**
->>>>>>> origin/main
+**Contact:** Hasib Shahriyar & Mehedi Alam Nahi  
+**Project:** [ZeroHunger](https://github.com/hasibshahriyar/ZeroHunger)
+
+*Together, we can make sure no one in our community goes hungry.* 🤝❤️
