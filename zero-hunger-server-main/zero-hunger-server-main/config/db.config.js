@@ -1,11 +1,13 @@
-const mysql = require("mysql2");
+const { Pool } = require('pg');
 require("dotenv").config();
-const connection = mysql.createConnection({
-  host: 'mysql.render.internal',
-  user: 'root',
-  password: 'hasib',
-  database: 'render',
-  multipleStatements: true
+
+const pool = new Pool({
+  host: process.env.DB_HOST || 'dpg-d3jf07mr433s73990te0-a',
+  user: process.env.DB_USER || 'food_donation_db_vf7r_user',
+  password: process.env.DB_PASSWORD || '8AqH7lC1Pw6oYCa8MjSEhf99LdjBtoLd',
+  database: process.env.DB_NAME || 'food_donation_db_vf7r',
+  port: process.env.DB_PORT || 5432,
+  ssl: { rejectUnauthorized: false }
 });
 
 // SQL statements to create tables
@@ -88,26 +90,27 @@ INSERT IGNORE INTO manage_food (id, food_id, status, deliveryStatus, recipientEm
 (20, 40, 'requested', 'pending', 'yeasin@gmail.com', 'Yeasin', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'Afsana Mimi Eti', 'eti@gmail.com', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'It is very tasty', 6, 'Dhaka', 6, 'Fish Curry', 'https://i.ibb.co/ncY6w3P/437205618-1640722806684555-1701830971204341659-n-1.jpg', 'fish', 'https://i.ibb.co/5xk1HZ7/fish.jpg');
 `;
 
-connection.connect((err) => {
-  if (err) {
-    console.error("Database connection failed:", err);
-  } else {
+pool.connect()
+  .then(() => {
     console.log("Database connected successfully");
     // Create tables if they don't exist
-    connection.query(createTablesSQL, (err) => {
-      if (err) {
-        console.error("Error creating tables:", err);
-      } else {
-        console.log("Database tables created/verified successfully");
-      }
-    });
-  }
-});
+    return pool.query(createTablesSQL);
+  })
+  .then(() => {
+    console.log("Database tables created/verified successfully");
+  })
+  .catch(err => {
+    console.error("Database connection failed:", err);
+  });
 
-// Wrap the connection's query method to match the expected format
+// Wrap the pool's query method to match the expected format
 const db = {
-  query: (sql, params, callback) => {
-    connection.query(sql, params, callback);
+  query: (sql, params) => {
+    return new Promise((resolve, reject) => {
+      pool.query(sql, params)
+        .then(result => resolve(result.rows))
+        .catch(err => reject(err));
+    });
   },
 };
 

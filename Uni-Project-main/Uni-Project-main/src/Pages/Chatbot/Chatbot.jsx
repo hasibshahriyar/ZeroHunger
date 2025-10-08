@@ -17,7 +17,7 @@ const Chatbot = () => {
   const { data: chat, isLoading, isError } = useQuery({
     queryKey: ["chat"],
     queryFn: async () => {
-      const response = await axios.get("http://localhost:5000/chatbot/question");
+      const response = await axios.get("https://zero-hunger-backend.onrender.com/api/v1/chatbot/question");
       return response.data;
     },
   });
@@ -33,7 +33,7 @@ const Chatbot = () => {
 
   const fetchData = async (question) => {
     try {
-      const response = await axios.get(`http://localhost:5000/chatbot?question=${question}`);
+      const response = await axios.get(`https://zero-hunger-backend.onrender.com/api/v1/chatbot?question=${question}`);
       setResponse(response.data);
     } catch (err) {
       console.error("Error fetching data:", err);

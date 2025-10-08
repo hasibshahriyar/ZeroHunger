@@ -13,7 +13,7 @@ import DonorProfile from "../Pages/Dashboard/DonorPage/DonorProfile";
 import AddFood from "../Pages/AddFood/AddFood";
 import ManageAddedFoods from "../Pages/Dashboard/DonorPage/ManageAddedFoods";
 import AdminProfile from "../Pages/Dashboard/AdminPage/AdminProfile";
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
 import PrivateRouter from "./PrivateRouter";
 import UserRouter from "./UserRouter";
@@ -27,7 +27,7 @@ import UserRating from "../Pages/Dashboard/UserPage/UserRating";
 import AdminManageRating from "../Pages/Dashboard/AdminPage/AdminManageRating";
 const axios = useAxios();
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Layout></Layout>,
