@@ -1,6 +1,6 @@
 import axios from "axios";
 const instance = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: "https://zero-hunger-backend.onrender.com/api/v1",
 });
 const useAxios = () => {
   return instance;
