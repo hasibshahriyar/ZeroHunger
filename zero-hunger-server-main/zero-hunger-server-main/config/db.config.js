@@ -2,11 +2,7 @@ const { Pool } = require('pg');
 require("dotenv").config();
 
 const pool = new Pool({
-  host: process.env.DB_HOST || 'dpg-d3jf07mr433s73990te0-a',
-  user: process.env.DB_USER || 'food_donation_db_vf7r_user',
-  password: process.env.DB_PASSWORD || '8AqH7lC1Pw6oYCa8MjSEhf99LdjBtoLd',
-  database: process.env.DB_NAME || 'food_donation_db_vf7r',
-  port: process.env.DB_PORT || 5432,
+  connectionString: process.env.DATABASE_URL || 'postgres://food_donation_db_vf7r_user:8AqH7lC1Pw6oYCa8MjSEhf99LdjBtoLd@dpg-d3jf07mr433s73990te0-a.singapore-postgres.render.com/food_donation_db_vf7r?sslmode=require',
   ssl: { rejectUnauthorized: false }
 });
 
