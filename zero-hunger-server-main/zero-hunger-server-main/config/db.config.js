@@ -1,10 +1,10 @@
 const mysql = require("mysql2");
 require("dotenv").config();
 const connection = mysql.createConnection({
-  host: 'mysql.railway.internal',
+  host: 'mysql.render.internal',
   user: 'root',
-  password: 'yTDsxTbxHmvSEjPvrvQLmNTvDIzUPKuP',
-  database: 'railway',
+  password: 'hasib',
+  database: 'render',
   multipleStatements: true
 });
 
