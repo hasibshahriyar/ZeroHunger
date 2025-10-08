@@ -19,13 +19,13 @@ const Footer = () => {
           <a className="link link-hover">
             <div className="flex items-center gap-1">
               <HiLocationMarker className="text-red-600 text-lg"></HiLocationMarker>
-              <p> Oakwood Avenue, Woodland</p>
+              <p> Dhaka, Bangladesh</p>
             </div>
           </a>
           <a className="link link-hover">
             <div className="text-red-500 flex items-center gap-1">
               <HiOutlinePhone></HiOutlinePhone>
-              <p>+2 392 3929 210</p>
+              <p>+880 123 456 7890, +880 987 654 3210</p>
             </div>
           </a>
         </nav>
@@ -75,7 +75,7 @@ const Footer = () => {
         </nav>
       </footer>
       <aside className="text-white flex justify-center pb-10">
-        <p>Copyright © 2023 - All right reserved by Zero Hunger</p>
+        <p>Copyright © 2025 - All right reserved by Zero Hunger</p>
       </aside>
     </div>
   );

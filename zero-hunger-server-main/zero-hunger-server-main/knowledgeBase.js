@@ -1,44 +1,111 @@
 const knowledgeBase = {
-  "what is food donation?":
-    "Food donation is the act of giving food to those in need, typically through charitable organizations or food banks. It helps reduce food waste and provides nourishment to individuals and families facing hunger.",
-  "why is food donation important?":
-    "Food donation is important because it helps address food insecurity and hunger in communities. By donating surplus food instead of wasting it, we can provide nutritious meals to those who need them most.",
-  "how can I donate food?":
-    "You can donate food by contacting local food banks, soup kitchens, shelters, or other charitable organizations in your area. They can provide guidance on what items are needed and how to drop off donations.",
+  // About ZeroHunger Platform
+  "what is zerohunger?":
+    "ZeroHunger is a community-driven platform that connects food donors with people in need. We help reduce food waste by enabling individuals, restaurants, and businesses to share extra food with neighbors who need it most. Our mission is to fight hunger and build stronger communities.",
+  
+  "how does zerohunger work?":
+    "ZeroHunger works in three simple steps: 1) Donors sign up and post available food with photos and details. 2) Recipients browse nearby food listings and request what they need. 3) Both parties coordinate pickup directly. Our platform handles notifications and tracking to make the process smooth and safe.",
+  
+  "who can use zerohunger?":
+    "Anyone can use ZeroHunger! We have three user types: Donors (individuals, restaurants, or businesses with extra food), Recipients (people who need food assistance), and Admins (who manage the platform). Simply sign up and select your role to get started.",
+  
+  "is zerohunger free to use?":
+    "Yes! ZeroHunger is completely free for both donors and recipients. Our goal is to make food sharing accessible to everyone in the community without any barriers. We believe fighting hunger should never come with a price tag.",
+  
+  // Getting Started
+  "how do I sign up on zerohunger?":
+    "Signing up is easy! Click the 'Register' button on our homepage, fill in your basic information (name, email, password), select your role (Donor or Recipient), and verify your email. Once registered, you can start posting or requesting food immediately.",
+  
+  "how do I donate food on zerohunger?":
+    "To donate food: 1) Log in to your donor account. 2) Click 'Add Food' or 'Post Food'. 3) Upload a photo of the food. 4) Add details like food type, quantity, expiry date, and pickup location. 5) Submit your listing. Recipients in your area will be notified and can request your donation.",
+  
+  "how do I request food on zerohunger?":
+    "To request food: 1) Log in to your recipient account. 2) Browse 'Available Food' to see nearby listings. 3) Click on items you need and hit 'Request'. 4) Wait for the donor to approve your request. 5) Coordinate pickup time and location through our messaging system.",
+  
+  "what information do I need to post food?":
+    "When posting food, you'll need: a clear photo of the food, food category (meals, groceries, baked goods, etc.), quantity or number of servings, expiration date or best before date, pickup location and time preferences, and any special instructions like dietary information or storage requirements.",
+  
+  // Food Safety & Guidelines
   "what types of food can I donate?":
-    "Non-perishable food items such as canned goods, dry pasta, rice, beans, and cereal are often accepted for donation. Some organizations may also accept perishable items like fresh produce, dairy, and baked goods.",
-  "where can I find food donation centers near me?":
-    "You can find food donation centers near you by searching online or using mobile apps that connect donors with local organizations. Additionally, community centers, religious institutions, and local government offices may have information on food donation programs.",
-  "how can I organize a food drive?":
-    "To organize a food drive, you can start by contacting local businesses, schools, and community groups to enlist their support. Set a goal, promote the event through flyers and social media, and designate drop-off locations for donations. Work with a local food bank or charity to coordinate logistics and distribution.",
-  "what are the benefits of food donation?":
-    "Food donation benefits both donors and recipients. For donors, it provides a way to give back to the community, reduce food waste, and receive tax deductions for eligible donations. For recipients, it provides access to nutritious food, reduces hunger, and promotes food security.",
-  "how can I volunteer at a food donation center?":
-    "To volunteer at a food donation center, you can contact local organizations directly to inquire about volunteer opportunities. Tasks may include sorting and packing food donations, distributing meals, assisting with fundraising events, or providing administrative support.",
-  "what should I consider before donating food?":
-    "Before donating food, consider the expiration dates, packaging integrity, and nutritional value of the items. Avoid donating damaged or expired goods, and prioritize nutritious options that meet the dietary needs of recipients. Additionally, check with donation centers for any specific guidelines or restrictions.",
-  "how does food donation help reduce food waste?":
-    "Food donation helps reduce food waste by diverting surplus food from landfills and redirecting it to people in need. Instead of discarding edible but unsold or unused food, businesses, restaurants, and individuals can donate it to organizations that distribute it to those facing hunger.",
-  "what happens to donated food?":
-    "Donated food is typically sorted, inspected, and distributed to individuals and families in need. Non-perishable items may be stored in food banks or pantries, while perishable items may be distributed more quickly or processed into meals. Some organizations also partner with local farms or food rescue programs to minimize waste and maximize distribution.",
-  "how can I host a food donation event?":
-    "To host a food donation event, you can plan a fundraiser, food drive, or community meal that encourages donations. Set a theme or goal for the event, promote it through various channels, and provide clear instructions on how and where to donate food items. Consider partnering with local businesses, schools, or organizations to increase participation and support.",
-  "what are some creative ways to donate food?":
-    "There are many creative ways to donate food, such as organizing a neighborhood food swap, hosting a potluck where guests bring canned goods for donation, or setting up a community fridge or pantry where people can leave or take items as needed. You can also encourage friends and family to donate food in lieu of gifts for special occasions.",
-  "how can I support food donation efforts without donating food?":
-    "If you're unable to donate food directly, you can support food donation efforts in other ways. Consider volunteering your time at a local food bank or donation center, organizing fundraising events to support hunger relief programs, or advocating for policies that address food insecurity and hunger in your community.",
-  "what are some common misconceptions about food donation?":
-    "One common misconception about food donation is that donated food is often expired or unsafe to consume. In reality, food banks and other organizations carefully inspect donated items to ensure they meet safety and quality standards. Another misconception is that only non-perishable items are accepted for donation, when in fact many organizations also accept perishable foods like fruits, vegetables, and dairy products.",
-  "how can businesses and restaurants donate surplus food?":
-    "Businesses and restaurants can donate surplus food by partnering with local food rescue organizations, shelters, or food banks. They can establish regular donation schedules, package and label items for donation, and ensure that food safety protocols are followed. Some businesses may also qualify for tax deductions or incentives for donating food.",
-  "what role do food banks play in food donation?":
-    "Food banks play a crucial role in food donation by serving as centralized distribution hubs for donated food items. They collect, store, and distribute food to individuals and families facing hunger through a network of partner agencies such as pantries, shelters, and meal programs. Food banks also provide additional services such as nutrition education, food assistance programs, and advocacy for policies that address food insecurity.",
-  "how can I get my community involved in food donation efforts?":
-    "To get your community involved in food donation efforts, you can organize educational events or workshops on food waste reduction and hunger relief, host volunteer opportunities at local donation centers or food banks, or collaborate with community leaders and organizations to develop initiatives that address food insecurity and promote food donation.",
-  "what impact does food donation have on the environment?":
-    "Food donation has a positive impact on the environment by reducing food waste and associated greenhouse gas emissions. Instead of ending up in landfills, donated food is redirected to people in need, minimizing its environmental footprint. Additionally, food donation encourages sustainable practices such as composting and food recovery, further reducing waste and conserving resources.",
-  "how can I advocate for food donation and hunger relief in my community?":
-    "You can advocate for food donation and hunger relief in your community by raising awareness about food insecurity and the importance of food donation through social media campaigns, community events, and outreach efforts. You can also support local initiatives and organizations working to address hunger, and engage with policymakers to advocate for policies that promote food access, nutrition education, and hunger relief programs.",
+    "You can donate both perishable and non-perishable items including: prepared meals, fresh produce, dairy products, baked goods, canned foods, packaged snacks, beverages, and groceries. All food must be safe, fresh, properly stored, and within expiration dates.",
+  
+  "are there food safety guidelines?":
+    "Yes! Food safety is our priority. Please ensure: food is fresh and within expiration dates, items are properly packaged and sealed, perishable items are kept at safe temperatures, you disclose allergens and ingredients, food is prepared in hygienic conditions, and you never donate spoiled, moldy, or contaminated items.",
+  
+  "can I donate homemade food?":
+    "Absolutely! Homemade food is welcome on ZeroHunger. Many community members appreciate home-cooked meals. Just ensure your food is freshly prepared, properly packaged, includes ingredient lists for allergen awareness, and is transported safely to maintain quality and temperature.",
+  
+  "what should I not donate?":
+    "Please don't donate: expired or spoiled food, items with broken seals or damaged packaging, food stored at unsafe temperatures, items without clear labeling, alcohol (unless specified by recipient), or anything that doesn't meet basic food safety standards. When in doubt, don't donate it.",
+  
+  // Platform Features
+  "can I track my donations?":
+    "Yes! Donors have access to a personal dashboard where you can track all your donations, see how many people you've helped, view your community impact metrics, manage active listings, and see ratings and feedback from recipients. It's a great way to see the difference you're making!",
+  
+  "how do notifications work?":
+    "ZeroHunger sends real-time notifications to keep you updated. Donors receive alerts when someone requests their food. Recipients get notified when new food is posted nearby or when their request is approved. You can customize notification preferences in your account settings.",
+  
+  "can I rate and review?":
+    "Yes! After each successful food exchange, both donors and recipients can rate each other and leave thank-you notes. This builds trust in our community, helps others identify reliable users, and creates a culture of gratitude and accountability on the platform.",
+  
+  "is there a messaging system?":
+    "Yes! Once a food request is approved, donors and recipients can communicate through our secure in-platform messaging system to coordinate pickup details, share special instructions, and ask questions. This keeps all communication organized and safe.",
+  
+  // Location & Pickup
+  "how do I find food near me?":
+    "Our platform automatically shows available food in your area based on your location. You can browse by category, use filters to find specific types of food, and view a map of nearby donations. The system prioritizes listings closest to you for convenient pickup.",
+  
+  "how is pickup arranged?":
+    "Pickup is arranged between donors and recipients. Once a request is approved, both parties communicate through our messaging system to agree on a convenient time and confirm the pickup location. Donors can specify their preferred pickup windows when posting food.",
+  
+  "can I deliver food instead of pickup?":
+    "While ZeroHunger is primarily designed for pickup, donors and recipients can privately arrange delivery if both parties agree. Always prioritize safety and meet in public places if you're meeting someone new. Never share personal information unnecessarily.",
+  
+  // Account & Privacy
+  "how do I change my account type?":
+    "To switch between Donor and Recipient roles, go to your Account Settings, select 'Change Role' or 'Profile Settings', and update your user type. Some users choose to be both donors and recipients at different times, which is totally fine!",
+  
+  "is my personal information safe?":
+    "Absolutely! We take privacy seriously. Your personal information is encrypted and secure. We never share your data with third parties. Only necessary information (like pickup location and food details) is visible to other users. You control what you share.",
+  
+  "can I delete my account?":
+    "Yes, you can delete your account anytime from Account Settings. Select 'Delete Account' and confirm. Please note: this action is permanent and will remove all your data, donation history, and listings from our platform.",
+  
+  // Community Impact
+  "how does zerohunger reduce food waste?":
+    "ZeroHunger fights food waste by creating a direct channel between people with extra food and those who need it. Instead of throwing away surplus food, donors can share it with neighbors. This keeps edible food out of landfills, reduces greenhouse gas emissions, and feeds people in need.",
+  
+  "what impact has zerohunger made?":
+    "ZeroHunger has helped connect thousands of donors with recipients, diverted tons of food from landfills, and provided countless meals to people facing food insecurity. Check our homepage for updated community impact statistics showing meals shared, people helped, and food waste prevented.",
+  
+  "how can businesses use zerohunger?":
+    "Restaurants, cafes, grocery stores, and catering businesses can join ZeroHunger to donate surplus food at closing time or after events. Create a business account, post available items regularly, and connect with community members. It's great for corporate social responsibility and reducing waste.",
+  
+  // Troubleshooting
+  "what if my food request is denied?":
+    "If a request is denied, don't worry! It might be because the food was already claimed, the donor chose another recipient, or timing didn't work out. Simply browse other available listings and submit new requests. There are always new donations being posted.",
+  
+  "what if no one requests my donation?":
+    "If your donation isn't requested quickly, try: adding a better photo, providing more detailed descriptions, adjusting your pickup time window, sharing your listing on social media, or reposting at different times of day when more users are active. Peak times are usually evenings and weekends.",
+  
+  "how do I report a problem?":
+    "If you encounter issues, inappropriate behavior, or food safety concerns, please report it immediately. Click 'Report' on any listing or user profile, or contact our admin team through the 'Help & Support' section. We take all reports seriously and investigate promptly.",
+  
+  "who do I contact for support?":
+    "For technical support, questions, or concerns, reach out to our team at support@zerohunger.com or use the 'Contact Us' form on our website. Our admin team monitors reports and responds to inquiries within 24-48 hours. We're here to help!",
+  
+  // General Food Donation Info
+  "what is food donation?":
+    "Food donation is the act of giving food to those in need, typically through charitable organizations or platforms like ZeroHunger. It helps reduce food waste and provides nourishment to individuals and families facing hunger, creating a more compassionate and sustainable community.",
+  
+  "why is food donation important?":
+    "Food donation addresses food insecurity, reduces waste, and strengthens communities. In a world where millions go hungry while tons of food is wasted daily, donation creates a bridge between surplus and need. It's an act of compassion that benefits donors, recipients, and the environment.",
+  
+  "how can I get my community involved?":
+    "Spread the word about ZeroHunger! Share our platform on social media, tell friends and family, organize community food drives, partner with local businesses to donate surplus food, volunteer to help recipients access the platform, and encourage schools or organizations to join our mission.",
+  
+  "what are the benefits of using zerohunger?":
+    "Benefits include: reducing your food waste, helping neighbors in need, building community connections, tracking your positive impact, receiving tax deduction information for eligible donations, accessing free food when needed, and being part of a sustainable solution to hunger and waste.",
 };
 
 module.exports = knowledgeBase;
