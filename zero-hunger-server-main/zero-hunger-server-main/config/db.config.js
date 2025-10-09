@@ -9,7 +9,7 @@ const pool = new Pool({
 // SQL statements to create tables
 const createTablesSQL = `
 CREATE TABLE IF NOT EXISTS foods (
-  id int NOT NULL AUTO_INCREMENT,
+  id SERIAL PRIMARY KEY,
   email varchar(255) DEFAULT NULL,
   user_name varchar(255) DEFAULT NULL,
   user_photo varchar(255) DEFAULT NULL,
@@ -21,23 +21,21 @@ CREATE TABLE IF NOT EXISTS foods (
   food_name varchar(255) DEFAULT NULL,
   food_photo varchar(255) DEFAULT NULL,
   category varchar(255) DEFAULT NULL,
-  category_image varchar(255) DEFAULT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  category_image varchar(255) DEFAULT NULL
+);
 
 CREATE TABLE IF NOT EXISTS users (
-  id int NOT NULL AUTO_INCREMENT,
+  id SERIAL PRIMARY KEY,
   username varchar(255) NOT NULL,
   email varchar(255) NOT NULL,
   password varchar(255) NOT NULL,
   userImage varchar(255) DEFAULT NULL,
   role varchar(50) NOT NULL,
-  PRIMARY KEY (id),
-  UNIQUE KEY email (email)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  UNIQUE(email)
+);
 
 CREATE TABLE IF NOT EXISTS manage_food (
-  id int NOT NULL AUTO_INCREMENT,
+  id SERIAL PRIMARY KEY,
   food_id int DEFAULT NULL,
   status varchar(255) DEFAULT NULL,
   deliveryStatus varchar(255) DEFAULT NULL,
@@ -54,9 +52,8 @@ CREATE TABLE IF NOT EXISTS manage_food (
   food_name varchar(255) DEFAULT NULL,
   food_photo varchar(255) DEFAULT NULL,
   category varchar(255) DEFAULT NULL,
-  category_image varchar(255) DEFAULT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  category_image varchar(255) DEFAULT NULL
+);
 
 -- Insert foods data
 INSERT IGNORE INTO foods (id, email, user_name, user_photo, status, additional_notes, expire_date, location, quantity, food_name, food_photo, category, category_image) VALUES
