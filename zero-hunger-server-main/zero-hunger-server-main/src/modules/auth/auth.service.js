@@ -5,14 +5,15 @@ const registerUser = async (username, email, password, userImage, role) => {
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const query =
-    "INSERT INTO users (username, email, password, role, userImage) VALUES (?,?,?,?,?)";
+    "INSERT INTO users (username, email, password, role, userImage) VALUES ($1, $2, $3, $4, $5)";
   return new Promise((resolve, reject) => {
     db.query(
       query,
       [username, email, hashedPassword, role, userImage],
       (err, result) => {
         if (err) {
-          if (err.code === "ER_DUP_ENTRY") {
+          // PostgreSQL duplicate key error code is '23505'
+          if (err.code === "23505") {
             reject({ status: 400, message: "Email already exists" });
           } else {
             reject({ status: 500, message: "Failed to register user" });
@@ -33,11 +34,11 @@ const registerUser = async (username, email, password, userImage, role) => {
 const loginUser = async (email, password) => {
   console.log(email, password);
 
-  const query = "SELECT * FROM users WHERE email=?";
+  const query = "SELECT * FROM users WHERE email=$1";
   console.log(query);
 
   return new Promise((resolve, reject) => {
-    db.query(query, [email], async (err, results) => {
+  db.query(query, [email], async (err, results) => {
       if (err) {
         return reject({ status: 500, message: "Internal Server Error" });
       }
