@@ -55,8 +55,6 @@ CREATE TABLE IF NOT EXISTS manage_food (
   category_image varchar(255) DEFAULT NULL
 );
 
--- Insert foods data
-
 INSERT INTO foods (id, email, user_name, user_photo, status, additional_notes, expire_date, location, quantity, food_name, food_photo, category, category_image) VALUES
 (1, 'john1@gmail.com', 'John Smith', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'requested', 'Delicious biryani made with fragrant basmati rice, tender meat, and aromatic spices.', 4, '123 Main Street, Cityville', 9, 'Biryani', 'https://i.ibb.co/Xyc8z1L/biriyani.jpg', 'rice', 'https://i.ibb.co/RB9bDKt/ricee.jpg'),
 (2, 'jane2@gmail.com', 'Jane Doe', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'requested', 'Mouth-watering beef bhuna cooked with onions, tomatoes, and green chilies.', 3, '456 Elm Street, Townville', 7, 'Beef Bhuna', 'https://i.ibb.co/8xsbR9D/beef.jpg', 'beef', 'https://i.ibb.co/Qd4Dg2b/beef.jpg'),
@@ -70,8 +68,6 @@ INSERT INTO foods (id, email, user_name, user_photo, status, additional_notes, e
 (52, 'nahi@gmail.com', 'Nahi', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'Available', 'I have extra food to donate.', 10, 'Haji Camp, Airport, Dhaka', 3, 'Bashmati', 'https://i.ibb.co/rKJVpfr3/OIP.webp', 'rice', 'https://i.ibb.co/RB9bDKt/ricee.jpg')
 ON CONFLICT (id) DO NOTHING;
 
--- Insert users data
-
 INSERT INTO users (id, username, email, password, userImage, role) VALUES
 (2, 'Chandler', 'chandler@gmail.com', '$2b$10$mVudWeikmA1GJc1MLwVxcu36zFrCz3UcTYjekpIh042zABGi2Lply', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'donor'),
 (3, 'Yeasin', 'yeasin@gmail.com', '$2b$10$pGeoVTXfehZMaXscLqevPuKiE8tYB8c38xp5peVouW4UtMavIjGWG', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'donor'),
@@ -80,8 +76,6 @@ INSERT INTO users (id, username, email, password, userImage, role) VALUES
 (11, 'hasib', 'shasib212085@bscse.uiu.ac.bd', '$2b$10$nwzVsfUoys49fVk65zo4fO/K3Tz5g2dhPN/AGuJAlGe5LTaicJzX2', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'admin'),
 (12, 'Nahi', 'nahi@gmail.com', '$2b$10$9EAEPhQ6VWEIHsXTH3UXAe03JP4pdr18Bzv3ChrTwBvJALRlyPCD6', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'donor')
 ON CONFLICT (id) DO NOTHING;
-
--- Insert manage_food data
 
 INSERT INTO manage_food (id, food_id, status, deliveryStatus, recipientEmail, recipientName, recipientImage, donorName, donorEmail, donorImage, additional_notes, expire_date, location, quantity, food_name, food_photo, category, category_image) VALUES
 (1, 1, 'requested', 'pending', 'chandler@gmail.com', 'Chandler', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'John Smith', 'john1@gmail.com', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'Delicious biryani made with fragrant basmati rice, tender meat, and aromatic spices.', 4, '123 Main Street, Cityville', 9, 'Biryani', 'https://i.ibb.co/Xyc8z1L/biriyani.jpg', 'rice', 'https://i.ibb.co/RB9bDKt/ricee.jpg'),
