@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS manage_food (
 
 CREATE TABLE IF NOT EXISTS rating (
   id SERIAL PRIMARY KEY,
-  date timestamp DEFAULT NULL,
+  "date" timestamp DEFAULT NULL,
   email varchar(255) DEFAULT NULL,
   feedback text,
   name varchar(255) DEFAULT NULL,
