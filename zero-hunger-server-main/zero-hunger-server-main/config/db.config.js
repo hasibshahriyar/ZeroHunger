@@ -55,6 +55,17 @@ CREATE TABLE IF NOT EXISTS manage_food (
   category_image varchar(255) DEFAULT NULL
 );
 
+CREATE TABLE IF NOT EXISTS rating (
+  id SERIAL PRIMARY KEY,
+  date timestamp DEFAULT NULL,
+  email varchar(255) DEFAULT NULL,
+  feedback text,
+  name varchar(255) DEFAULT NULL,
+  ratingValue int DEFAULT NULL,
+  suggestion text,
+  userImage varchar(255) DEFAULT NULL
+);
+
 INSERT INTO foods (id, email, user_name, user_photo, status, additional_notes, expire_date, location, quantity, food_name, food_photo, category, category_image) VALUES
 (1, 'john1@gmail.com', 'John Smith', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'requested', 'Delicious biryani made with fragrant basmati rice, tender meat, and aromatic spices.', 4, '123 Main Street, Cityville', 9, 'Biryani', 'https://i.ibb.co/Xyc8z1L/biriyani.jpg', 'rice', 'https://i.ibb.co/RB9bDKt/ricee.jpg'),
 (2, 'jane2@gmail.com', 'Jane Doe', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'requested', 'Mouth-watering beef bhuna cooked with onions, tomatoes, and green chilies.', 3, '456 Elm Street, Townville', 7, 'Beef Bhuna', 'https://i.ibb.co/8xsbR9D/beef.jpg', 'beef', 'https://i.ibb.co/Qd4Dg2b/beef.jpg'),
@@ -101,12 +112,16 @@ pool.connect()
 
 // Wrap the pool's query method to match the expected format
 const db = {
-  query: (sql, params) => {
-    return new Promise((resolve, reject) => {
+  query: (sql, params, callback) => {
+    if (typeof callback === 'function') {
       pool.query(sql, params)
-        .then(result => resolve(result.rows))
-        .catch(err => reject(err));
-    });
+        .then(result => callback(null, result.rows))
+        .catch(err => callback(err, null));
+    } else {
+      return pool.query(sql, params)
+        .then(result => result.rows)
+        .catch(err => { throw err; });
+    }
   },
 };
 
