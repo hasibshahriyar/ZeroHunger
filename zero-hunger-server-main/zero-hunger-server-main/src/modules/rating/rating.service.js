@@ -11,7 +11,7 @@ const addRating = (
 ) => {
   return new Promise((resolve, reject) => {
     const query =
-      "INSERT INTO rating (suggestion, feedback, name, email, userImage, ratingValue, date) VALUES($1,$2,$3,$4,$5,$6,$7)";
+      'INSERT INTO rating (suggestion, feedback, name, email, userImage, ratingValue, "date") VALUES($1,$2,$3,$4,$5,$6,$7)';
     db.query(
       query,
       [suggestion, feedback, name, email, userImage, ratingValue, date],
@@ -26,7 +26,7 @@ const addRating = (
 };
 
 const getRatings = (callback) => {
-  db.query("SELECT * FROM rating ORDER BY date DESC", [], callback);
+  db.query('SELECT * FROM rating ORDER BY "date" DESC', [], callback);
 };
 
 const deleteRating = (id) => {
