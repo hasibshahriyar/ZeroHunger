@@ -8,7 +8,8 @@ const pool = new Pool({
 
 // SQL statements to create tables
 const createTablesSQL = `
-CREATE TABLE IF NOT EXISTS foods (
+DROP TABLE IF EXISTS foods;
+CREATE TABLE foods (
   id SERIAL PRIMARY KEY,
   email varchar(255) DEFAULT NULL,
   user_name varchar(255) DEFAULT NULL,
@@ -24,7 +25,8 @@ CREATE TABLE IF NOT EXISTS foods (
   category_image varchar(255) DEFAULT NULL
 );
 
-CREATE TABLE IF NOT EXISTS users (
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username varchar(255) NOT NULL,
   email varchar(255) NOT NULL,
@@ -34,7 +36,8 @@ CREATE TABLE IF NOT EXISTS users (
   UNIQUE(email)
 );
 
-CREATE TABLE IF NOT EXISTS manage_food (
+DROP TABLE IF EXISTS manage_food;
+CREATE TABLE manage_food (
   id SERIAL PRIMARY KEY,
   food_id int DEFAULT NULL,
   status varchar(255) DEFAULT NULL,
@@ -55,7 +58,8 @@ CREATE TABLE IF NOT EXISTS manage_food (
   category_image varchar(255) DEFAULT NULL
 );
 
-CREATE TABLE IF NOT EXISTS rating (
+DROP TABLE IF EXISTS rating;
+CREATE TABLE rating (
   id SERIAL PRIMARY KEY,
   "date" timestamp DEFAULT NULL,
   email varchar(255) DEFAULT NULL,
@@ -101,7 +105,10 @@ pool.connect()
   .then(() => {
     console.log("Database connected successfully");
     // Create tables if they don't exist
-    return pool.query(createTablesSQL);
+    const queries = createTablesSQL.split(';').filter(q => q.trim().length > 0);
+    return queries.reduce((promise, query) => {
+      return promise.then(() => pool.query(query.trim()));
+    }, Promise.resolve());
   })
   .then(() => {
     console.log("Database tables created/verified successfully");
