@@ -55,7 +55,8 @@ CREATE TABLE IF NOT EXISTS manage_food (
   category_image varchar(255) DEFAULT NULL
 );
 
-CREATE TABLE IF NOT EXISTS rating (
+DROP TABLE IF EXISTS rating;
+CREATE TABLE rating (
   id SERIAL PRIMARY KEY,
   "date" timestamp DEFAULT NULL,
   email varchar(255) DEFAULT NULL,
