@@ -29,8 +29,7 @@ const Register = () => {
         async (data) => {
           if (data?.message) {
             toast.success("Welcome to ZeroHunger! Registration successful 🎉");
-            await logout();
-            navigate("/login");
+            navigate("/");
           } else {
             toast.error(`${error}`);
           }

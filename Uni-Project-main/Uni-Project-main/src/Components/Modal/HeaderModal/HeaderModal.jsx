@@ -1,16 +1,49 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiUser, FiMail, FiLogOut, FiSettings, FiShield, FiX } from "react-icons/fi";
 import { MdVerified } from "react-icons/md";
 
 import useAuth from "../../../hooks/useAuth";
 import useRole from "../../../hooks/useRole";
+import useAxios from "../../../hooks/useAxios";
 
 const HeaderModal = ({ isOpen, closeModal }) => {
   const { user, logout } = useAuth();
   const [role] = useRole();
   const navigate = useNavigate();
+  const axios = useAxios();
+  const [quickStats, setQuickStats] = useState({});
+
+  useEffect(() => {
+    const fetchQuickStats = async () => {
+      if (role === 'donor' && user?.email) {
+        try {
+          const res = await axios.get(`/users/donor-stats/${user.email}`);
+          setQuickStats({
+            donations: res.data.totalFood || 0,
+            peopleHelped: res.data.totalRecipient || 0
+          });
+        } catch (error) {
+          console.error('Error fetching donor stats:', error);
+        }
+      } else if (role === 'admin') {
+        try {
+          const res = await axios.get('/users/admin-stats');
+          setQuickStats({
+            totalUsers: res.data.userResults?.uniqueDonor + res.data.userResults?.uniqueRecipients || 0,
+            activeToday: res.data.userResults?.totalFood || 0
+          });
+        } catch (error) {
+          console.error('Error fetching admin stats:', error);
+        }
+      }
+    };
+
+    if (isOpen && (role === 'donor' || role === 'admin')) {
+      fetchQuickStats();
+    }
+  }, [isOpen, role, user?.email, axios]);
 
   const handleLogout = async () => {
     await logout();
@@ -19,7 +52,7 @@ const HeaderModal = ({ isOpen, closeModal }) => {
 
   const handleAccountSettings = () => {
     closeModal();
-    
+
     // Navigate to the appropriate dashboard profile page based on user role
     if (role === 'admin') {
       navigate('/dashboard/admin-profile');
@@ -82,7 +115,7 @@ const HeaderModal = ({ isOpen, closeModal }) => {
                   >
                     <FiX className="w-5 h-5" />
                   </button>
-                  
+
                   <div className="flex flex-col items-center text-center">
                     <div className="relative mb-4">
                       <img
@@ -95,11 +128,11 @@ const HeaderModal = ({ isOpen, closeModal }) => {
                       />
                       <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-400 border-2 border-white rounded-full"></div>
                     </div>
-                    
+
                     <h3 className="text-lg font-semibold capitalize">
                       {user?.username || 'User'}
                     </h3>
-                    
+
                     <div className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium border mt-2 ${getRoleBadgeColor(role)}`}>
                       {getRoleIcon(role)}
                       <span className="capitalize">{role || 'User'}</span>
@@ -115,7 +148,7 @@ const HeaderModal = ({ isOpen, closeModal }) => {
                       <FiMail className="w-4 h-4 text-secondary-500" />
                       <span className="text-sm text-secondary-700">{user?.email}</span>
                     </div>
-                    
+
                     <div className="flex items-center gap-3 p-3 bg-secondary-50 rounded-xl">
                       <FiUser className="w-4 h-4 text-secondary-500" />
                       <span className="text-sm text-secondary-700 capitalize">
@@ -131,7 +164,7 @@ const HeaderModal = ({ isOpen, closeModal }) => {
                       <div className="grid grid-cols-2 gap-3 text-center">
                         <div>
                           <div className="text-lg font-bold text-primary-600">
-                            {role === 'donor' ? '12' : '156'}
+                            {role === 'donor' ? (quickStats.donations || 0) : (quickStats.totalUsers || 0)}
                           </div>
                           <div className="text-xs text-secondary-500">
                             {role === 'donor' ? 'Donations' : 'Total Users'}
@@ -139,7 +172,7 @@ const HeaderModal = ({ isOpen, closeModal }) => {
                         </div>
                         <div>
                           <div className="text-lg font-bold text-accent-600">
-                            {role === 'donor' ? '48' : '89'}
+                            {role === 'donor' ? (quickStats.peopleHelped || 0) : (quickStats.activeToday || 0)}
                           </div>
                           <div className="text-xs text-secondary-500">
                             {role === 'donor' ? 'People Helped' : 'Active Today'}
@@ -151,17 +184,17 @@ const HeaderModal = ({ isOpen, closeModal }) => {
 
                   {/* Action Buttons */}
                   <div className="space-y-2">
-                    <button 
+                    <button
                       onClick={handleAccountSettings}
                       className="w-full flex items-center gap-3 p-3 text-left hover:bg-secondary-50 rounded-xl transition-colors group"
                     >
                       <FiSettings className="w-4 h-4 text-secondary-500 group-hover:text-primary-600 transition-colors" />
                       <span className="text-sm text-secondary-700 group-hover:text-primary-700 transition-colors">View Profile & Settings</span>
                     </button>
-                    
+
                     {/* Quick Actions based on role */}
                     {role === 'donor' && (
-                      <button 
+                      <button
                         onClick={() => {
                           closeModal();
                           navigate('/dashboard/add-food');
@@ -174,9 +207,9 @@ const HeaderModal = ({ isOpen, closeModal }) => {
                         <span className="text-sm text-green-700 group-hover:text-green-800 transition-colors">Add Food Donation</span>
                       </button>
                     )}
-                    
+
                     {role === 'user' && (
-                      <button 
+                      <button
                         onClick={() => {
                           closeModal();
                           navigate('/available');
@@ -189,7 +222,7 @@ const HeaderModal = ({ isOpen, closeModal }) => {
                         <span className="text-sm text-blue-700 group-hover:text-blue-800 transition-colors">Browse Available Food</span>
                       </button>
                     )}
-                    
+
                     <button
                       onClick={handleLogout}
                       className="w-full flex items-center gap-3 p-3 text-left hover:bg-red-50 rounded-xl transition-colors text-red-600"
