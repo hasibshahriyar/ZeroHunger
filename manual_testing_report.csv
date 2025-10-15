@@ -1,0 +1,44 @@
+Test Case ID,Test Scenario,Test Steps,Expected Results,Actual Results,Status
+TC001,Verify login functionality,"1. Navigate to login page
+2. Enter valid username: hasib@gmail.com
+3. Enter valid password: hasib
+4. Click on Login button",User should be logged in successfully and redirected to dashboard,User logged in successfully with status 200 and user details returned,Pass
+TC002,Verify invalid login,"1. Navigate to login page
+2. Enter invalid username: invalid@example.com
+3. Enter invalid password: wrongpass
+4. Click on Login button",Error message should be displayed,Error message 'Invalid Email' returned,Pass
+TC003,Verify admin login,"1. Navigate to login page
+2. Enter admin username: shasib212085@bscse.uiu.ac.bd
+3. Enter admin password: hasib
+4. Click on Login button",Admin should be logged in and redirected to admin dashboard,Admin logged in successfully with status 200 and admin role returned,Pass
+TC004,Verify user registration,"1. Navigate to register page
+2. Enter username: testuser
+3. Enter email: testuser@example.com
+4. Enter password: testpass123
+5. Click on Register button",New user account should be created and user logged in,User registered successfully with status 201 and user details returned,Pass
+TC005,Verify add food functionality,"1. Login as donor
+2. Navigate to Add Food page
+3. Fill in food details (name, quantity, location, etc.)
+4. Click on Add Food button",Food item should be added successfully,Food item added successfully with insertId 71,Pass
+TC006,Verify view available foods,"1. Login as user
+2. Navigate to Available Foods page
+3. Check if food items are displayed",Available food items should be displayed,API returned 40 food items with details like name, quantity, location, etc.,Pass
+TC007,Verify chatbot functionality,"1. Navigate to Chatbot page
+2. Type a question: 'how do I donate food on zerohunger?'
+3. Check the response",Chatbot should provide relevant response,Chatbot returned detailed instructions for donating food,Pass
+TC008,Verify dashboard access,"1. Login as user
+2. Check if dashboard loads properly
+3. Verify user-specific content",Dashboard should load with user-specific information,Dashboard loads properly with user-specific content and navigation,Pass
+TC009,Verify logout functionality,"1. Login as user
+2. Click on logout button
+3. Check if user is redirected to login page",User should be logged out and redirected to login page,User successfully logged out and redirected to login page,Pass
+TC010,Verify password reset,"1. Navigate to login page
+2. Click on Forgot Password link
+3. Enter registered email
+4. Click on Reset Password button",Password reset instructions should be sent,Password reset functionality works as expected,Pass
+TC011,Verify user management,"1. Login as admin
+2. Navigate to User Management page
+3. Check if users are listed",All users should be displayed with their details,API returned 13 users with details like email, username, role, etc.,Pass
+TC012,Verify rating system,"1. Navigate to Rating page
+2. Submit a rating and feedback
+3. Check if rating is saved",Rating should be saved successfully,Rating submitted successfully with insertId 27, and API returned 1 rating,Pass
