@@ -10,6 +10,8 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Loader from "../../Components/Loader/Loader";
 
+const BACKEND_URL = (import.meta.env.VITE_API_URL || "http://localhost:5000/api/v1").replace("/api/v1", "");
+
 const Chatbot = () => {
   const [response, setResponse] = useState("");
   const [questionData, setQuestionData] = useState("");
@@ -17,7 +19,7 @@ const Chatbot = () => {
   const { data: chat, isLoading, isError } = useQuery({
     queryKey: ["chat"],
     queryFn: async () => {
-      const response = await axios.get("https://zero-hunger-backend.onrender.com/api/v1/chatbot/question");
+      const response = await axios.get(`${BACKEND_URL}/chatbot/question`);
       return response.data;
     },
   });
@@ -33,7 +35,7 @@ const Chatbot = () => {
 
   const fetchData = async (question) => {
     try {
-      const response = await axios.get(`https://zero-hunger-backend.onrender.com/api/v1/chatbot?question=${question}`);
+      const response = await axios.get(`${BACKEND_URL}/chatbot?question=${question}`);
       setResponse(response.data);
     } catch (err) {
       console.error("Error fetching data:", err);
