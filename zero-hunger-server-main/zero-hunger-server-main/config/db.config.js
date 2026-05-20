@@ -90,8 +90,9 @@ INSERT INTO users (id, username, email, password, userImage, role) VALUES
 (4, 'Afsana Mimi Eti', 'eti@gmail.com', '$2b$10$sswsyM/E1sTwwlFnQShtwOjMETmZBfSHWQSS/OStix3nnpyS/i2EC', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'donor'),
 (5, 'Likhon Sarker', 'likhonsarker@gmail.com', '$2b$10$TvfMYUi8Muba1Z0nf6fDLe3amvkpohSPP6tpFTcExcEHdcQYiUUfK', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'admin'),
 (11, 'hasib', 'shasib212085@bscse.uiu.ac.bd', '$2b$10$nwzVsfUoys49fVk65zo4fO/K3Tz5g2dhPN/AGuJAlGe5LTaicJzX2', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'admin'),
-
-(12, 'Nahi', 'nahi@gmail.com', '$2b$10$9EAEPhQ6VWEIHsXTH3UXAe03JP4pdr18Bzv3ChrTwBvJALRlyPCD6', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'donor')
+(12, 'Nahi', 'nahi@gmail.com', '$2b$10$9EAEPhQ6VWEIHsXTH3UXAe03JP4pdr18Bzv3ChrTwBvJALRlyPCD6', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'donor'),
+(13, 'Admin User', 'admin@zerohunger.com', '$2b$10$oRGoOUGZQhfBLcCPA6.Fv.F7o74/VLhVGlNTYerrQAGXH/WEQk/ee', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'admin'),
+(14, 'Demo User', 'user@zerohunger.com', '$2b$10$29ZVXunDczRQgSmSD.roGegLmaYAQk7V9ydGXAbXQMWsWFg1oGgoq', 'https://i.ibb.co/5cxvxkf/userr.jpg', 'donor')
 ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO manage_food (id, food_id, status, deliveryStatus, recipientEmail, recipientName, recipientImage, donorName, donorEmail, donorImage, additional_notes, expire_date, location, quantity, food_name, food_photo, category, category_image) VALUES
