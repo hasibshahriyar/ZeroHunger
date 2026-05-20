@@ -2,7 +2,7 @@ const { Pool } = require('pg');
 require("dotenv").config();
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgres://food_donation_db_vf7r_user:8AqH7lC1Pw6oYCa8MjSEhf99LdjBtoLd@dpg-d3jf07mr433s73990te0-a.singapore-postgres.render.com/food_donation_db_vf7r?sslmode=require',
+  connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
 });
 
