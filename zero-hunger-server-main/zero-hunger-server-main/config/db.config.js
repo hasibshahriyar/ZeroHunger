@@ -126,9 +126,7 @@ const db = {
         .then(result => callback(null, result.rows))
         .catch(err => callback(err, null));
     } else {
-      return pool.query(sql, params)
-        .then(result => result.rows)
-        .catch(err => { throw err; });
+      return pool.query(sql, params);
     }
   },
 };
