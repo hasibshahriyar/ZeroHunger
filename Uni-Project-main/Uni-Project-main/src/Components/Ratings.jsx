@@ -23,7 +23,11 @@ const Ratings = () => {
       return res.data;
     },
   });
-  console.log(ratings);
+
+  const ratingList = Array.isArray(ratings) ? ratings : [];
+
+  if (isLoading || ratingList.length === 0) return null;
+
   return (
     <div className="pb-32 bg-[#F9FAFB]">
       <Container>
@@ -33,7 +37,7 @@ const Ratings = () => {
         ></HeadingText>
         <div className="mt-12 ">
           <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-            {ratings?.slice(0, 5).map((rating, index) => (
+            {ratingList.slice(0, 5).map((rating, index) => (
               <SwiperSlide key={index}>
                 <div className="w-3/5 bg-white py-20 rounded-md shadow-md mx-auto flex flex-col justify-center items-center space-y-4 text-center">
                   <Rating
