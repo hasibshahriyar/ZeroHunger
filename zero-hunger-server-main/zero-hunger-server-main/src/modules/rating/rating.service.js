@@ -25,8 +25,9 @@ const addRating = (
   });
 };
 
-const getRatings = (callback) => {
-  db.query('SELECT * FROM rating ORDER BY "date" DESC', [], callback);
+const getRatings = async () => {
+  const result = await db.query('SELECT * FROM rating ORDER BY "date" DESC', []);
+  return result.rows;
 };
 
 const deleteRating = (id) => {
